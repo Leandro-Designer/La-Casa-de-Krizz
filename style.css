@@ -275,9 +275,10 @@ body {
 }
 
 .pix-box img {
-    width: 220px;
-    height: 220px;
+    width: 180px;
+    height: 180px;
     margin-bottom: 15px;
+    align-item: center;
 }
 
 .pix-text {
@@ -347,5 +348,6 @@ body {
     }
 
 }
+
 
 
