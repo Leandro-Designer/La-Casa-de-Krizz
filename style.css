@@ -266,11 +266,7 @@ body {
 /* ================= DONACIONES ================= */
 .donaciones {
     text-align: center;
-    padding: 40px 20px;
-}
-
-p {
-    margin-bottom: 10px;
+    padding: 20px 10px;
 }
 
 .pix-box {
@@ -351,4 +347,5 @@ p {
     }
 
 }
+
 
