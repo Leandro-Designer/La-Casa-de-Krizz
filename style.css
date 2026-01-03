@@ -264,45 +264,24 @@ body {
 }
 
 /* ================= DONACIONES ================= */
-.donaciones {
-    background: linear-gradient(135deg, rgba(2,6,23,0.7), rgba(2,6,23,0.9));
-    text-align: center;
-    padding: 60px 20px;
-    margin-top: 60px;
-    animation: fadeUp 0.9s ease forwards;
-}
+<div class="pix-box">
+        <img
+            src="https://api.qrserver.com/v1/create-qr-code/?size=220x220&data=00020126480014br.gov.bcb.pix0126soyelkrizztiktok@gmail.com5204000053039865802BR5916CC202503021825556009Sao Paulo610901227-20062240520daqr23027060106942646304BC3E"
+            alt="QR PIX para apoyar el blog"
+        >
 
-.donaciones h2 {
-    font-size: 28px;
-    margin-bottom: 10px;
-}
+        <p class="pix-text">Escanea o copia el código PIX 👇</p>
 
-.donaciones p {
-    color: #cbd5e1;
-    max-width: 700px;
-    margin: 0 auto;
-    font-size: 16px;
-}
+        <!-- PIX COPIA Y PEGA -->
+        <textarea
+            readonly
+            onclick="this.select()"
+            class="pix-code"
+        >00020126480014br.gov.bcb.pix0126soyelkrizztiktok@gmail.com5204000053039865802BR5916CC202503021825556009Sao Paulo610901227-20062240520daqr23027060106942646304BC3E</textarea>
 
-.btn-donar {
-    margin-top: 25px;
-    padding: 15px 38px;
-    font-size: 18px;
-    border-radius: 999px;
-    border: none;
-    cursor: pointer;
-    background: linear-gradient(135deg, #22c55e, #16a34a);
-    color: #ffffff;
-    font-weight: bold;
-    box-shadow: 0 10px 25px rgba(34,197,94,0.35);
-    transition: transform 0.25s ease, box-shadow 0.25s ease;
-}
-
-.btn-donar:hover {
-    transform: translateY(-3px) scale(1.05);
-    box-shadow: 0 16px 35px rgba(34,197,94,0.45);
-}
-
+        <small>Pago seguro vía PIX 🇧🇷</small>
+    </div>
+</section>
 /* ================= SIDEBAR ================= */
 .sidebar {
     display: flex;
@@ -351,4 +330,5 @@ body {
         width: 220px;
         height: 220px;
     }
+
 }
