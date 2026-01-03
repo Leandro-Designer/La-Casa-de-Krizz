@@ -269,6 +269,10 @@ body {
     padding: 20px 10px;
 }
 
+p {
+    margin-bottom: 10px;
+}
+
 .pix-box {
     max-width: 360px;
     margin: 0 auto;
@@ -348,6 +352,7 @@ body {
     }
 
 }
+
 
 
 
