@@ -168,22 +168,23 @@
 </div>
 
 <!-- DONACIONES -->
-<section id="Apoyar" class="donaciones">
-    <h4>❤️ Apoyar al Blog</h4>
-    <p>
-        Tu apoyo ayuda a seguir creando contenido de calidad, historias reales
-        y mensajes de fe e inspiración.
-    </p>
+<div class="pix-box">
+        <img
+            src="https://api.qrserver.com/v1/create-qr-code/?size=220x220&data=00020126480014br.gov.bcb.pix0126soyelkrizztiktok@gmail.com5204000053039865802BR5916CC202503021825556009Sao Paulo610901227-20062240520daqr23027060106942646304BC3E"
+            alt="QR PIX para apoyar el blog"
+        >
 
-    <form 
-        action="https://link.mercadopago.com.br/soyelkrizztiktok" 
-        method="get" 
-        target="_blank"
-    >
-        <button type="submit" class="btn-donar">
-            Apoya al Blog vía PIX 🇧🇷
-        </button>
-    </form>
+        <p class="pix-text">Escanea o copia el código PIX 👇</p>
+
+        <!-- PIX COPIA Y PEGA -->
+        <textarea
+            readonly
+            onclick="this.select()"
+            class="pix-code"
+        >00020126480014br.gov.bcb.pix0126soyelkrizztiktok@gmail.com5204000053039865802BR5916CC202503021825556009Sao Paulo610901227-20062240520daqr23027060106942646304BC3E</textarea>
+
+        <small>Pago seguro vía PIX 🇧🇷</small>
+    </div>
 </section>
 
 <!-- ================= FOOTER ================= -->
@@ -261,6 +262,7 @@ document.querySelectorAll(".btnLink").forEach((btn, index) => {
 </body>
 
 </html>
+
 
 
 
