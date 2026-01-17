@@ -26,6 +26,11 @@ body {
     color: #f8fafc;
 }
 
+body {
+    font-size: 16px;
+    line-height: 1.6;
+}
+
 /* ================= HEADER ================= */
 .header {
     background: #020617;
@@ -173,6 +178,7 @@ body {
     border-radius: 14px;
     overflow: hidden;
     cursor: pointer;
+    background: #020617;
 }
 
 .video-thumb img {
@@ -184,6 +190,10 @@ body {
 
 .video-thumb:hover img {
     transform: scale(1.06);
+}
+
+.play-btn {
+    pointer-events: none;
 }
 
 .play-btn {
@@ -214,20 +224,10 @@ body {
     background: var(--rojo-hover);
 }
 
-.adminAccess {
-    margin-top: 10px;
-    background: transparent;
-    border: 1px solid #334155;
-    color: #cbd5e1;
-    padding: 10px 14px;
-    border-radius: 10px;
-    cursor: pointer;
+.btnLink {
+    min-height: 44px;
 }
 
-.adminAccess:hover {
-    border-color: var(--rojo);
-    color: var(--rojo-hover);
-}
 
 /* ================= MODAL ================= */
 .modal-video {
@@ -264,9 +264,10 @@ body {
 }
 
 /* ================= DONACIONES ================= */
+
 .donaciones {
     text-align: center;
-    padding: 20px 10px;
+    padding: 40px 20px;
 }
 
 p {
@@ -282,7 +283,6 @@ p {
     width: 180px;
     height: 180px;
     margin-bottom: 15px;
-    align-item: center;
 }
 
 .pix-text {
@@ -350,9 +350,4 @@ p {
         width: 220px;
         height: 220px;
     }
-
 }
-
-
-
-
