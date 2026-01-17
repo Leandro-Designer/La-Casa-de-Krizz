@@ -3,29 +3,34 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>La Casa de Krizz | Videos, Historias y Vida del Emigrante</title>
+    <title>La Casa de Krizz 🎥 | Historias Reales del Emigrante Cubano</title>
 
     <!-- SEO -->
-<meta name="description" content="Soy El Krizz, creador de contenido cubano radicado en Brasil. Historias reales de emigración, viajes, entrevistas, fe cristiana y crecimiento personal.">
-<meta name="keywords" content="Soy El Krizz, youtuber cubano, emigrante en Brasil, historias reales, viajes, fe cristiana, creador de contenido">
+<meta name="description" content="La Casa de Krizz: historias reales de emigración, entrevistas, fe cristiana y vida fuera de Cuba. Videos auténticos de Soy El Krizz, creador cubano en Brasil.">
+<meta name="keywords" content="Soy El Krizz, emigrante cubano, vida en Brasil, historias reales, videos de emigración, fe cristiana, creador cubano">
 <meta name="Leandro Milán" content="La Casa de Krizz">
 <meta name="robots" content="index, follow">
 
 <!-- Open Graph -->
-<meta property="og:title" content="Soy El Krizz | Historias Reales del Emigrante">
+<meta property="og:title" content="La Casa de Krizz | Historias Reales del Emigrante Cubano">
 <meta property="og:description" content="Videos, experiencias y contenido real sobre emigración, fe y vida fuera de Cuba.">
 <meta property="og:image" content="https://leandro-designer.github.io/La-Casa-de-Krizz/imagenes/logo.png">
-<meta property="og:url" content="https://leandro-designer.github.io/La-Casa-de-Krizz/">
+<meta property="og:url" content="https://la-casa-de-krizz.github.io/">
 <meta property="og:type" content="website">
 
 <!-- TWITTER -->
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="La Casa de Kriss">
-<meta name="twitter:description" content="Historias reales, entrevistas, Fe y crecimiento personal">
+<meta name="twitter:title" content="La Casa de Krizz">
+<meta name="twitter:description" content="Historias reales del emigrante cubano. Videos auténticos y humanos.">
 <meta name="twitter:image" content="https://leandro-designer.github.io/La-Casa-de-Krizz/imagenes/logo.png">
 
     <!-- ICONO -->
-    <link rel="icon" href="imagenes/logo-blog2.png"> 
+    <link rel="icon" href="imagenes/logo-blog2.png">
+
+    <link rel="preconnect" href="https://img.youtube.com">
+    <link rel="preconnect" href="https://www.youtube.com">
+    <link rel="preconnect" href="https://firebasedatabase.app">
+    <link rel="preload" as="image" href="imagenes/Soy-el-Krizz.png">
 
     <!-- CSS -->
     <link rel="stylesheet" href="style.css">
@@ -36,8 +41,8 @@
 <header class="header">
     <div class="header-container">
         <div class="brand">
-            <img src="imagenes/logo-blog2.png" alt="Logo-La Casa de Kriss">
-            <span>La Casa de Krizz</span>
+            <img src="imagenes/logo-blog2.png" alt="Logo-La Casa de Kriss" loading="lazy" >
+            <span>La Casa de Kriss</span>
         </div>
 
         <nav class="nav">
@@ -65,11 +70,11 @@
             class="author-img"
             itemprop="image">
 
-    <h3 itemprop="name">Soy El Krizz</h3>
+    <h2 itemprop="name">Soy El Krizz</h2>
 
     <div class="biografia" itemscope itemtype="https://schema.org/Person">
 
-    <h2 itemprop="name">La Casa de Krizz</h2>
+    <h3 itemprop="name">La Casa de Krizz</h3>
 
     <p itemprop="description" class="author-desc">
         <strong>Cristian Luis Calzadilla Reyes</strong>, conocido como <strong>Soy El Krizz</strong>,
@@ -102,30 +107,42 @@
 <section>
 
     <!-- POST 1 -->
-    <article class="post" itemscope itemtype="https://schema.org/VideoObject">
+    <article class="post" data-slot="1" itemscope itemtype="https://schema.org/VideoObject">
 
     <meta itemprop="name" content="Video más reciente de Soy El Krizz">
     <meta itemprop="description" content="Experiencias reales de emigración y vida fuera de Cuba">
     <meta itemprop="thumbnailUrl" content="https://img.youtube.com/vi/ID/maxresdefault.jpg">
     <meta itemprop="uploadDate" content="2025-01-01">
-    <meta itemprop="embedUrl" content="https://www.youtube.com/embed/zPl6H_vfAEM&t=8s">
+    <meta itemprop="embedUrl" content="https://www.youtube.com/embed/ID">
 
         <div class="video-thumb" data-video="gFSZrlOdkKU">
-            <img src="https://img.youtube.com/vi/gFSZrlOdkKU/maxresdefault.jpg" alt="Video YouTube">
+            <img src="https://img.youtube.com/vi/gFSZrlOdkKU/maxresdefault.jpg" alt="Video YouTube" loading="lazy" >
             <span class="play-btn">▶</span>
         </div>
 
         <div class="post-content">
             <h3>Video más reciente</h3>
             <p>Contenido nuevo del canal.</p>
-
             <button class="adminAccess">🔒 Acceso administrador</button>
-            <button class="btnLink" style="display:none;">Subir video →</button>
+            <button class="btnLink">➕ Subir / cambiar video</button>
         </div>
+
+        <script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "VideoObject",
+    "name": "Video de Soy El Krizz",
+    "description": "Historias reales del emigrante cubano",
+    "thumbnailUrl": "https://img.youtube.com/vi/VIDEO_ID/maxresdefault.jpg",
+    "uploadDate": "2026-01-01",
+    "contentUrl": "https://www.youtube.com/watch?v=VIDEO_ID",
+    "embedUrl": "https://www.youtube.com/embed/VIDEO_ID"
+}
+</script>
     </article>
 
     <!-- POST 2 -->
-    <article class="post" itemscope itemtype="https://schema.org/VideoObject">
+    <article class="post" data-slot="2" itemscope itemtype="https://schema.org/VideoObject">
 
     <meta itemprop="name" content="Video más reciente de Soy El Krizz">
     <meta itemprop="description" content="Experiencias reales de emigración y vida fuera de Cuba">
@@ -134,17 +151,29 @@
     <meta itemprop="embedUrl" content="https://www.youtube.com/embed/ID">
 
         <div class="video-thumb" data-video="pbfb7nQKcQE">
-            <img src="https://img.youtube.com/vi/pbfb7nQKcQE/maxresdefault.jpg" alt="Video YouTube">
+            <img src="https://img.youtube.com/vi/pbfb7nQKcQE/maxresdefault.jpg" alt="Video YouTube" loading="lazy" >
             <span class="play-btn">▶</span>
         </div>
 
         <div class="post-content">
             <h3>Contenido destacado</h3>
             <p>Historias reales y entrevistas.</p>
-
             <button class="adminAccess">🔒 Acceso administrador</button>
-            <button class="btnLink" style="display:none;">Subir video →</button>
+            <button class="btnLink">➕ Subir / cambiar video</button>
         </div>
+
+        <script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "VideoObject",
+    "name": "Video de Soy El Krizz",
+    "description": "Historias reales del emigrante cubano",
+    "thumbnailUrl": "https://img.youtube.com/vi/VIDEO_ID/maxresdefault.jpg",
+    "uploadDate": "2026-01-01",
+    "contentUrl": "https://www.youtube.com/watch?v=VIDEO_ID",
+    "embedUrl": "https://www.youtube.com/embed/VIDEO_ID"
+}
+</script>
     </article>
 
 </section>
@@ -180,8 +209,7 @@
     <div class="pix-box">
         <img
             src="https://api.qrserver.com/v1/create-qr-code/?size=220x220&data=00020126480014br.gov.bcb.pix0126soyelkrizztiktok@gmail.com5204000053039865802BR5916CC202503021825556009Sao Paulo610901227-20062240520daqr23027060106942646304BC3E"
-            alt="QR PIX para apoyar el blog"
-        >
+            alt="QR PIX para apoyar el blog" loading="lazy">
 
         <p class="pix-text">Escanea o copia el código PIX 👇</p>
 
@@ -198,25 +226,25 @@
 
 <!-- ================= FOOTER ================= -->
 <footer class="footer">
-    <p>© 2026 La Casa de Kriss. Todos los derechos reservados</p>
-    Desarrollado por <a href="https://wa.me/+5551999422335" target="_blank">Leandro Milan</a>
+    <p>© 2026 La Casa de Krizz · Historias reales del emigrante cubano</p>
+    <p>Desarrollado por <a href="https://wa.me/5551999422335">Leandro Milan</a></p>
 </footer>
 
-<!-- ================= SCRIPT ================= -->
+<!-- ========= SCRIPT ========= -->
 <script>
 const modal = document.getElementById("videoModal");
 const frame = document.getElementById("videoFrame");
 const closeModal = document.getElementById("closeModal");
 
-/* Abrir video */
-document.querySelectorAll(".video-thumb").forEach(thumb => {
-    thumb.addEventListener("click", () => {
+window.activarModal = function () {
+    document.querySelectorAll(".video-thumb").forEach(thumb => {
+    thumb.onclick = () => {
         frame.src = `https://www.youtube.com/embed/${thumb.dataset.video}?autoplay=1`;
         modal.style.display = "flex";
-    });
+    };
 });
+};
 
-/* Cerrar modal */
 closeModal.onclick = () => {
     modal.style.display = "none";
     frame.src = "";
@@ -224,58 +252,95 @@ closeModal.onclick = () => {
 
 modal.onclick = e => {
     if (e.target === modal) {
-        modal.style.display = "none";
-        frame.src = "";
-    }
+    modal.style.display = "none";
+    frame.src = "";
+}
 };
 
-/* ================= ADMIN ================= */
-const ADMIN_PASSWORD = "soy_el_krizz_2026";
+activarModal();
+</script>
 
-document.querySelectorAll(".adminAccess").forEach((btn, index) => {
-    btn.addEventListener("click", () => {
-        const pass = prompt("Contraseña de administrador:");
-        if (pass !== ADMIN_PASSWORD) {
-            alert("Acceso denegado ❌");
-            return;
-        }
-        alert("Acceso concedido ✔");
-        btn.style.display = "none";
-        document.querySelectorAll(".btnLink")[index].style.display = "inline-block";
-    });
+<script type="module">
+import { initializeApp } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-app.js";
+import {
+    getDatabase,
+    ref,
+    get,
+    set
+} from "https://www.gstatic.com/firebasejs/10.8.0/firebase-database.js";
+
+/* ================= ADMIN ACCESS ================= */
+
+// ocultar botones al cargar
+document.querySelectorAll(".btnLink").forEach(btn => {
+    btn.style.display = "none";
 });
 
-/* Subir video (YouTube) */
-document.querySelectorAll(".btnLink").forEach((btn, index) => {
-    btn.addEventListener("click", () => {
-        const link = prompt("Pega el link de YouTube:");
-        if (!link) return;
+// activar modo admin
+document.querySelectorAll(".adminAccess").forEach(btn => {
+    btn.onclick = () => {
+    const pass = prompt("Contraseña de administrador:");
 
-        const match = link.match(/(youtu\.be\/|v=)([^&]+)/);
-        if (!match) {
-            alert("Link no válido");
-            return;
-        }
-
-        const videoId = match[2];
-        const post = document.querySelectorAll(".post")[index];
-        const thumb = post.querySelector(".video-thumb");
-        const img = thumb.querySelector("img");
-
-        thumb.dataset.video = videoId;
-        img.src = `https://img.youtube.com/vi/${videoId}/maxresdefault.jpg`;
-    });
+    if (pass === "Soyelkrizz2026") {
+        document.querySelectorAll(".btnLink").forEach(b => {
+        b.style.display = "block";
 });
+        alert("Modo administrador activado ✔");
+    } else {
+        alert("Contraseña incorrecta ❌");
+    }
+    };
+});
+
+/* 🔥 CONFIG FIREBASE (REALTIME DATABASE) */
+const firebaseConfig = {
+    apiKey: "TU_API_KEY",
+    authDomain: "la-casa-de-krizz.firebaseapp.com",
+    databaseURL: "https://la-casa-de-krizz-default-rtdb.firebaseio.com",
+    projectId: "la-casa-de-krizz",
+};
+
+const app = initializeApp(firebaseConfig);
+const db = getDatabase(app);
+
+/* ================= CARGAR VIDEOS ================= */
+async function cargarVideos() {
+    const snapshot = await get(ref(db, "videos"));
+    if (!snapshot.exists()) return;
+
+    const data = snapshot.val();
+
+    Object.keys(data).forEach(slot => {
+    const post = document.querySelector(`.post[data-slot="${slot}"]`);
+    if (!post) return;
+
+    const thumb = post.querySelector(".video-thumb");
+    const img = thumb.querySelector("img");
+
+    thumb.dataset.video = data[slot].videoId;
+    img.src = `https://img.youtube.com/vi/${data[slot].videoId}/hqdefault.jpg`;
+});
+
+    window.activarModal();
+}
+
+cargarVideos();
+
+/* ================= SUBIR VIDEO EN FIREBASE================= */
+window.subirVideoFirebase = async (slot) => {
+    const link = prompt("Pega el link de YouTube:");
+    if (!link) return;
+
+    const match = link.match(/(?:v=|youtu\.be\/)([a-zA-Z0-9_-]{11})/);
+    if (!match) return alert("Link inválido");
+
+    await set(ref(db, `videos/${slot}`), {
+    videoId: match[2]
+});
+
+    alert("Video guardado ✔ Recarga la página");
+};
 </script>
 
 </body>
-
 </html>
-
-
-
-
-
-
-
-
