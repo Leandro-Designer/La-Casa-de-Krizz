@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://tu-sitio/sitemap.xml
+Sitemap: https://la-casa-de-krizz.github.io/sitemap.xml
