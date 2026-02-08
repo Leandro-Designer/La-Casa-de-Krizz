@@ -262,95 +262,39 @@ activarModal();
 </script>
 
 <script type="module">
-import { initializeApp } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-app.js";
-import {
-    getDatabase,
-    ref,
-    get,
-    set
-} from "https://www.gstatic.com/firebasejs/10.8.0/firebase-database.js";
-
-/* ================= ADMIN ACCESS ================= */
+/* ================= ADMIN (CARGA DIFERIDA) =================
+   Firebase se carga solo cuando el admin lo activa.
+   Evita warnings/errores de red en usuarios normales y mejora rendimiento.
+*/
 
 // ocultar botones al cargar
 document.querySelectorAll(".btnLink").forEach(btn => {
     btn.style.display = "none";
 });
 
-// activar modo admin
-document.querySelectorAll(".adminAccess").forEach(btn => {
-    btn.onclick = () => {
+async function activarAdmin() {
     const pass = prompt("Contraseña de administrador:");
-
-    if (pass === "Soyelkrizz2026") {
-        document.querySelectorAll(".btnLink").forEach(b => {
-        b.style.display = "block";
-});
-        alert("Modo administrador activado ✔");
-    } else {
+    if (pass !== "Soyelkrizz2026") {
         alert("Contraseña incorrecta ❌");
-    }
-    };
-});
-
-/* 🔥 CONFIG FIREBASE (REALTIME DATABASE) */
-const firebaseConfig = {
-    apiKey: "TU_API_KEY",
-    authDomain: "la-casa-de-krizz.firebaseapp.com",
-    databaseURL: "https://la-casa-de-krizz-default-rtdb.firebaseio.com",
-    projectId: "la-casa-de-krizz",
-};
-
-const app = initializeApp(firebaseConfig);
-const db = getDatabase(app);
-
-/* ================= CARGAR VIDEOS ================= */
-async function cargarVideos() {
-    const snapshot = await get(ref(db, "videos"));
-    if (!snapshot.exists()) return;
-
-    const data = snapshot.val();
-
-    Object.keys(data).forEach(slot => {
-    const post = document.querySelector(`.post[data-slot="${slot}"]`);
-    if (!post) return;
-
-    const thumb = post.querySelector(".video-thumb");
-    const img = thumb.querySelector("img");
-
-    thumb.dataset.video = data[slot].videoId;
-    img.src = `https://img.youtube.com/vi/${data[slot].videoId}/hqdefault.jpg`;
-});
-
-    window.activarModal();
-}
-
-cargarVideos();
-
-/* ================= SUBIR VIDEO EN FIREBASE================= */
-window.subirVideoFirebase = async (slot) => {
-    const link = prompt("Pega el link de YouTube:");
-    if (!link) return;
-
-    const match = link.match(/(?:v=|youtu\.be\/)([a-zA-Z0-9_-]{11})/);
-    if (!match) {
-        alert("Link inválido ❌");
         return;
     }
 
-    await set(ref(db, `videos/${slot}`), {
-        videoId: match[1]
+    document.querySelectorAll(".btnLink").forEach(b => {
+        b.style.display = "block";
     });
 
-    alert("Video guardado ✔ Recarga la página");
-};
+    try {
+        const mod = await import("./admin-firebase.js");
+        await mod.initAdminFirebase();
+        alert("Modo administrador activado ✔");
+    } catch (err) {
+        console.error("No se pudo cargar Firebase (admin). Revisa configuración/DNS.", err);
+        alert("No se pudo conectar con Firebase. Revisa la configuración y vuelve a intentar.");
+    }
+}
 
-/* ================= BOTONES SUBIR VIDEO ================= */
-document.querySelectorAll(".btnLink").forEach((btn, index) => {
-    btn.onclick = () => {
-        const slot = index + 1;
-        subirVideoFirebase(slot);
-    };
+document.querySelectorAll(".adminAccess").forEach(btn => {
+    btn.addEventListener("click", activarAdmin);
 });
 </script>
 

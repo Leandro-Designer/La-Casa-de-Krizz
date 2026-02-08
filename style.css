@@ -83,6 +83,8 @@ body {
 
 .hero-content h1 {
     text-shadow: 0 0 25px rgba(255,107,107,0.45);
+    font-size: clamp(32px, 5vw, 56px);
+    line-height: 1.08;
 }
 
 .hero-content p {
