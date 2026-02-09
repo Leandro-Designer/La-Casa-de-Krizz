@@ -12,6 +12,4 @@ yarn-error.log*
 .env
 .env.*
 
-# Optional: local overrides you don't want committed
-site-config.local.js
 

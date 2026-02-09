@@ -29,7 +29,6 @@
 
     <link rel="preconnect" href="https://img.youtube.com">
     <link rel="preconnect" href="https://www.youtube.com">
-    <link rel="preconnect" href="https://www.gstatic.com">
     <link rel="preload" as="image" href="imagenes/Soy-el-Krizz.png">
 
     <!-- CSS -->
@@ -123,9 +122,6 @@
         <div class="post-content">
             <h3>Video más reciente</h3>
             <p>Contenido nuevo del canal.</p>
-            <button class="adminAccess">🔒 Acceso administrador</button>
-            <button class="btnVideo">➕ Cambiar video</button>
-            <button class="btnThumb">🖼 Subir thumbnail</button>
         </div>
 
         <script type="application/ld+json">
@@ -159,9 +155,6 @@
         <div class="post-content">
             <h3>Contenido destacado</h3>
             <p>Historias reales y entrevistas.</p>
-            <button class="adminAccess">🔒 Acceso administrador</button>
-            <button class="btnVideo">➕ Cambiar video</button>
-            <button class="btnThumb">🖼 Subir thumbnail</button>
         </div>
 
         <script type="application/ld+json">
@@ -260,13 +253,6 @@ modal.onclick = e => {
 };
 
 activarModal();
-</script>
-
-<script src="./site-config.js"></script>
-<script type="module">
-  import { loadVideosFromFirestore, bindAdminFirestore } from "./videos-firestore.js";
-  loadVideosFromFirestore();
-  bindAdminFirestore();
 </script>
 
 </body>
