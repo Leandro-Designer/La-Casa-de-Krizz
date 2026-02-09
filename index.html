@@ -272,6 +272,21 @@ window.FIREBASE_CONFIG = {
 import { initializeApp, getApps } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-app.js";
 import { getFirestore, doc, getDoc } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-firestore.js";
 
+function normalizeYouTubeId(value) {
+  const s = String(value || "").trim();
+  if (!s) return null;
+
+  // If the value starts with a YouTube id, accept the first 11 chars.
+  const m0 = s.match(/^([a-zA-Z0-9_-]{11})/);
+  if (m0) return m0[1];
+
+  // Accept common URL patterns.
+  const m1 = s.match(/(?:v=|youtu\.be\/)([a-zA-Z0-9_-]{11})/);
+  if (m1) return m1[1];
+
+  return null;
+}
+
 function applyVideo(slot, videoId, thumbUrl) {
   const post = document.querySelector(`.post[data-slot="${slot}"]`);
   if (!post) return;
@@ -280,18 +295,15 @@ function applyVideo(slot, videoId, thumbUrl) {
   const img = thumb?.querySelector("img");
   if (!thumb || !img) return;
 
-  if (typeof videoId === "string" && videoId.length === 11) {
-    thumb.dataset.video = videoId;
-  }
+  const id = normalizeYouTubeId(videoId);
+  if (id) thumb.dataset.video = id;
 
   if (typeof thumbUrl === "string" && /^https?:\/\//.test(thumbUrl)) {
     img.src = thumbUrl;
     return;
   }
 
-  if (typeof videoId === "string" && videoId.length === 11) {
-    img.src = `https://img.youtube.com/vi/${videoId}/hqdefault.jpg`;
-  }
+  if (id) img.src = `https://img.youtube.com/vi/${id}/hqdefault.jpg`;
 }
 
 async function loadVideosFromFirestore() {
