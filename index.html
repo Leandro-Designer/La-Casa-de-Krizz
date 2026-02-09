@@ -30,10 +30,16 @@
     <link rel="preconnect" href="https://img.youtube.com">
     <link rel="preconnect" href="https://www.youtube.com">
     <link rel="preconnect" href="https://www.gstatic.com">
+    <link rel="preconnect" href="https://firestore.googleapis.com">
     <link rel="preload" as="image" href="imagenes/Soy-el-Krizz.png">
 
     <!-- CSS -->
     <link rel="stylesheet" href="style.css">
+
+    <script>
+        // Avoid flashing the hardcoded thumbnails before Firestore swaps them in.
+        document.documentElement.classList.add("videos-loading");
+    </script>
 </head>
 <body>
 
@@ -272,6 +278,25 @@ window.FIREBASE_CONFIG = {
 import { initializeApp, getApps } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-app.js";
 import { getFirestore, doc, getDoc } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-firestore.js";
 
+const CACHE_KEY = "krizz_videos_cache_v1";
+
+function readCache() {
+  try {
+    const raw = localStorage.getItem(CACHE_KEY);
+    return raw ? JSON.parse(raw) : null;
+  } catch {
+    return null;
+  }
+}
+
+function writeCache(cache) {
+  try {
+    localStorage.setItem(CACHE_KEY, JSON.stringify(cache));
+  } catch {
+    // ignore (private mode / quota / blocked)
+  }
+}
+
 function normalizeYouTubeId(value) {
   const s = String(value || "").trim();
   if (!s) return null;
@@ -310,6 +335,7 @@ async function loadVideosFromFirestore() {
   const firebaseConfig = window.FIREBASE_CONFIG;
   if (!firebaseConfig?.apiKey || !firebaseConfig?.projectId) {
     console.warn("FIREBASE_CONFIG no configurado; se usan videos hardcodeados del HTML.");
+    document.documentElement.classList.remove("videos-loading");
     return;
   }
 
@@ -322,22 +348,45 @@ async function loadVideosFromFirestore() {
 
   const uniqueSlots = Array.from(new Set(slots));
 
-  await Promise.all(
-    uniqueSlots.map(async (slot) => {
-      try {
-        const snap = await getDoc(doc(db, "videos", String(slot)));
-        if (!snap.exists()) return;
+  // Apply last-known values immediately to prevent showing stale HTML defaults.
+  const cached = readCache();
+  if (cached && typeof cached === "object") {
+    let applied = false;
+    for (const slot of uniqueSlots) {
+      const entry = cached?.[slot];
+      if (!entry) continue;
+      applyVideo(slot, entry.videoId, entry.thumbUrl);
+      applied = true;
+    }
+    if (applied) {
+      window.activarModal?.();
+      document.documentElement.classList.remove("videos-loading");
+    }
+  }
 
-        const data = snap.data() || {};
-        applyVideo(slot, data.videoId, data.thumbUrl);
-      } catch (err) {
-        console.warn(`No se pudo leer Firestore para slot ${slot}.`, err);
-      }
-    })
-  );
+  // Refresh from Firestore in the background (and update cache).
+  const nextCache = (cached && typeof cached === "object") ? { ...cached } : {};
+  try {
+    await Promise.all(
+      uniqueSlots.map(async (slot) => {
+        try {
+          const snap = await getDoc(doc(db, "videos", String(slot)));
+          if (!snap.exists()) return;
 
-  // Re-bind modal click handlers after swapping IDs.
-  window.activarModal?.();
+          const data = snap.data() || {};
+          applyVideo(slot, data.videoId, data.thumbUrl);
+          nextCache[slot] = { videoId: data.videoId ?? null, thumbUrl: data.thumbUrl ?? null };
+        } catch (err) {
+          console.warn(`No se pudo leer Firestore para slot ${slot}.`, err);
+        }
+      })
+    );
+
+    writeCache(nextCache);
+  } finally {
+    window.activarModal?.();
+    document.documentElement.classList.remove("videos-loading");
+  }
 }
 
 loadVideosFromFirestore();
