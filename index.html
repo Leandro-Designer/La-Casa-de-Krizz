@@ -14,21 +14,22 @@
 <!-- Open Graph -->
 <meta property="og:title" content="La Casa de Krizz | Historias Reales del Emigrante Cubano">
 <meta property="og:description" content="Videos, experiencias y contenido real sobre emigración, fe y vida fuera de Cuba.">
-<meta property="og:image" content="https://la-casa-de-krizz.github.io/imagenes/logo.png">
-<meta property="og:url" content="https://la-casa-de-krizz.github.io/">
+<meta property="og:image" content="https://leandro-designer.github.io/La-Casa-de-Krizz/imagenes/logo.png">
+<meta property="og:url" content="https://leandro-designer.github.io/La-Casa-de-Krizz/">
 <meta property="og:type" content="website">
 
 <!-- TWITTER -->
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="La Casa de Krizz">
 <meta name="twitter:description" content="Historias reales del emigrante cubano. Videos auténticos y humanos.">
-<meta name="twitter:image" content="https://la-casa-de-krizz.github.io/imagenes/logo.png">
+<meta name="twitter:image" content="https://leandro-designer.github.io/La-Casa-de-Krizz/imagenes/logo.png">
 
     <!-- ICONO -->
     <link rel="icon" href="imagenes/logo-blog2.png">
 
     <link rel="preconnect" href="https://img.youtube.com">
     <link rel="preconnect" href="https://www.youtube.com">
+    <link rel="preconnect" href="https://www.gstatic.com">
     <link rel="preload" as="image" href="imagenes/Soy-el-Krizz.png">
 
     <!-- CSS -->
@@ -253,6 +254,81 @@ modal.onclick = e => {
 };
 
 activarModal();
+</script>
+
+<!-- Firestore (solo lectura): editas los videos desde Firebase Console -->
+<script>
+window.FIREBASE_CONFIG = {
+  apiKey: "AIzaSyBAXIQzY64m6Wi8TiInXWgIlKB62qNLuCw",
+  authDomain: "home-krizz.firebaseapp.com",
+  projectId: "home-krizz",
+  storageBucket: "home-krizz.firebasestorage.app",
+  messagingSenderId: "703865238749",
+  appId: "1:703865238749:web:b13125d9fe00a649421734"
+};
+</script>
+
+<script type="module">
+import { initializeApp, getApps } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-app.js";
+import { getFirestore, doc, getDoc } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-firestore.js";
+
+function applyVideo(slot, videoId, thumbUrl) {
+  const post = document.querySelector(`.post[data-slot="${slot}"]`);
+  if (!post) return;
+
+  const thumb = post.querySelector(".video-thumb");
+  const img = thumb?.querySelector("img");
+  if (!thumb || !img) return;
+
+  if (typeof videoId === "string" && videoId.length === 11) {
+    thumb.dataset.video = videoId;
+  }
+
+  if (typeof thumbUrl === "string" && /^https?:\\/\\//.test(thumbUrl)) {
+    img.src = thumbUrl;
+    return;
+  }
+
+  if (typeof videoId === "string" && videoId.length === 11) {
+    img.src = `https://img.youtube.com/vi/${videoId}/hqdefault.jpg`;
+  }
+}
+
+async function loadVideosFromFirestore() {
+  const firebaseConfig = window.FIREBASE_CONFIG;
+  if (!firebaseConfig?.apiKey || !firebaseConfig?.projectId) {
+    console.warn("FIREBASE_CONFIG no configurado; se usan videos hardcodeados del HTML.");
+    return;
+  }
+
+  const app = getApps().length ? getApps()[0] : initializeApp(firebaseConfig);
+  const db = getFirestore(app);
+
+  const slots = Array.from(document.querySelectorAll(".post[data-slot]"))
+    .map((el) => el.dataset.slot)
+    .filter(Boolean);
+
+  const uniqueSlots = Array.from(new Set(slots));
+
+  await Promise.all(
+    uniqueSlots.map(async (slot) => {
+      try {
+        const snap = await getDoc(doc(db, "videos", String(slot)));
+        if (!snap.exists()) return;
+
+        const data = snap.data() || {};
+        applyVideo(slot, data.videoId, data.thumbUrl);
+      } catch (err) {
+        console.warn(`No se pudo leer Firestore para slot ${slot}.`, err);
+      }
+    })
+  );
+
+  // Re-bind modal click handlers after swapping IDs.
+  window.activarModal?.();
+}
+
+loadVideosFromFirestore();
 </script>
 
 </body>
