@@ -10,19 +10,24 @@
 <meta name="keywords" content="Soy El Krizz, emigrante cubano, vida en Brasil, historias reales, videos de emigración, fe cristiana, creador cubano">
 <meta name="author" content="Leandro Milán">
 <meta name="robots" content="index, follow">
+<link rel="canonical" href="https://leandro-designer.github.io/La-Casa-de-Krizz/">
+<meta name="theme-color" content="#020617">
 
-<!-- Open Graph -->
-<meta property="og:title" content="La Casa de Krizz | Historias Reales del Emigrante Cubano">
-<meta property="og:description" content="Videos, experiencias y contenido real sobre emigración, fe y vida fuera de Cuba.">
-<meta property="og:image" content="https://leandro-designer.github.io/La-Casa-de-Krizz/imagenes/logo.png">
-<meta property="og:url" content="https://leandro-designer.github.io/La-Casa-de-Krizz/">
-<meta property="og:type" content="website">
+ <!-- Open Graph -->
+ <meta property="og:title" content="La Casa de Krizz | Historias Reales del Emigrante Cubano">
+ <meta property="og:description" content="Videos, experiencias y contenido real sobre emigración, fe y vida fuera de Cuba.">
+ <meta property="og:image" content="https://leandro-designer.github.io/La-Casa-de-Krizz/imagenes/logo.png">
+ <meta property="og:url" content="https://leandro-designer.github.io/La-Casa-de-Krizz/">
+ <meta property="og:type" content="website">
+ <meta property="og:site_name" content="La Casa de Krizz">
+ <meta property="og:locale" content="es_ES">
 
-<!-- TWITTER -->
-<meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="La Casa de Krizz">
-<meta name="twitter:description" content="Historias reales del emigrante cubano. Videos auténticos y humanos.">
-<meta name="twitter:image" content="https://leandro-designer.github.io/La-Casa-de-Krizz/imagenes/logo.png">
+ <!-- TWITTER -->
+ <meta name="twitter:card" content="summary_large_image">
+ <meta name="twitter:title" content="La Casa de Krizz">
+ <meta name="twitter:description" content="Historias reales del emigrante cubano. Videos auténticos y humanos.">
+ <meta name="twitter:image" content="https://leandro-designer.github.io/La-Casa-de-Krizz/imagenes/logo.png">
+ <meta name="twitter:url" content="https://leandro-designer.github.io/La-Casa-de-Krizz/">
 
     <!-- ICONO -->
     <link rel="icon" href="imagenes/logo-blog2.png">
@@ -31,6 +36,8 @@
     <link rel="preconnect" href="https://www.youtube.com">
     <link rel="preconnect" href="https://www.gstatic.com">
     <link rel="preconnect" href="https://firestore.googleapis.com">
+    <link rel="preconnect" href="https://api.cloudinary.com">
+    <link rel="preconnect" href="https://res.cloudinary.com">
     <link rel="preload" as="image" href="imagenes/Soy-el-Krizz.png">
 
     <!-- CSS -->
@@ -47,8 +54,8 @@
 <header class="header">
     <div class="header-container">
         <div class="brand">
-            <img src="imagenes/logo-blog2.png" alt="Logo-La Casa de Kriss" loading="lazy" >
-            <span>La Casa de Kriss</span>
+            <img src="imagenes/logo-blog2.png" alt="Logo La Casa de Krizz" loading="lazy" >
+            <span>La Casa de Krizz</span>
         </div>
 
         <nav class="nav">
@@ -63,7 +70,7 @@
 <!-- ================= HERO ================= -->
 <section id="Inicio" class="hero">
     <div class="hero-content">
-        <h1>Contenido, entrevistas y detrás de cámaras</h1>
+        <h1>La Casa de Krizz: contenido, entrevistas y detrás de cámaras</h1>
         <p>Página oficial de Soy El Krizz</p>
     </div>
 </section>
@@ -113,17 +120,10 @@
 <section>
 
     <!-- POST 1 -->
-    <article class="post" data-slot="1" itemscope itemtype="https://schema.org/VideoObject">
-
-    <meta itemprop="name" content="Video más reciente de Soy El Krizz">
-    <meta itemprop="description" content="Experiencias reales de emigración y vida fuera de Cuba">
-    <meta itemprop="thumbnailUrl" content="https://img.youtube.com/vi/ID/maxresdefault.jpg">
-    <meta itemprop="uploadDate" content="2025-01-01">
-    <meta itemprop="embedUrl" content="https://www.youtube.com/embed/ID">
-
+    <article class="post" data-slot="1">
         <div class="video-thumb" data-video="gFSZrlOdkKU">
-            <img src="https://img.youtube.com/vi/gFSZrlOdkKU/maxresdefault.jpg" alt="Video YouTube" loading="lazy" >
-            <span class="play-btn">▶</span>
+            <img src="https://img.youtube.com/vi/gFSZrlOdkKU/hqdefault.jpg" alt="Video más reciente de Soy El Krizz" loading="lazy" >
+            <span class="play-btn">&#9654;</span>
         </div>
 
         <div class="post-content">
@@ -131,32 +131,26 @@
             <p>Contenido nuevo del canal.</p>
         </div>
 
-        <script type="application/ld+json">
+        <script type="application/ld+json" class="video-ld">
 {
-    "@context": "https://schema.org",
-    "@type": "VideoObject",
-    "name": "Video de Soy El Krizz",
-    "description": "Historias reales del emigrante cubano",
-    "thumbnailUrl": "https://img.youtube.com/vi/VIDEO_ID/maxresdefault.jpg",
-    "uploadDate": "2026-01-01",
-    "contentUrl": "https://www.youtube.com/watch?v=VIDEO_ID",
-    "embedUrl": "https://www.youtube.com/embed/VIDEO_ID"
+  "@context": "https://schema.org",
+  "@type": "VideoObject",
+  "name": "Video más reciente - Soy El Krizz",
+  "description": "Contenido nuevo del canal.",
+  "thumbnailUrl": [
+    "https://img.youtube.com/vi/gFSZrlOdkKU/hqdefault.jpg"
+  ],
+  "contentUrl": "https://www.youtube.com/watch?v=gFSZrlOdkKU",
+  "embedUrl": "https://www.youtube.com/embed/gFSZrlOdkKU"
 }
-</script>
+        </script>
     </article>
 
     <!-- POST 2 -->
-    <article class="post" data-slot="2" itemscope itemtype="https://schema.org/VideoObject">
-
-    <meta itemprop="name" content="Video más reciente de Soy El Krizz">
-    <meta itemprop="description" content="Experiencias reales de emigración y vida fuera de Cuba">
-    <meta itemprop="thumbnailUrl" content="https://img.youtube.com/vi/ID/maxresdefault.jpg">
-    <meta itemprop="uploadDate" content="2025-01-01">
-    <meta itemprop="embedUrl" content="https://www.youtube.com/embed/ID">
-
+    <article class="post" data-slot="2">
         <div class="video-thumb" data-video="pbfb7nQKcQE">
-            <img src="https://img.youtube.com/vi/pbfb7nQKcQE/maxresdefault.jpg" alt="Video YouTube" loading="lazy" >
-            <span class="play-btn">▶</span>
+            <img src="https://img.youtube.com/vi/pbfb7nQKcQE/hqdefault.jpg" alt="Contenido destacado de Soy El Krizz" loading="lazy" >
+            <span class="play-btn">&#9654;</span>
         </div>
 
         <div class="post-content">
@@ -164,25 +158,27 @@
             <p>Historias reales y entrevistas.</p>
         </div>
 
-        <script type="application/ld+json">
+        <script type="application/ld+json" class="video-ld">
 {
-    "@context": "https://schema.org",
-    "@type": "VideoObject",
-    "name": "Video de Soy El Krizz",
-    "description": "Historias reales del emigrante cubano",
-    "thumbnailUrl": "https://img.youtube.com/vi/VIDEO_ID/maxresdefault.jpg",
-    "uploadDate": "2026-01-01",
-    "contentUrl": "https://www.youtube.com/watch?v=VIDEO_ID",
-    "embedUrl": "https://www.youtube.com/embed/VIDEO_ID"
+  "@context": "https://schema.org",
+  "@type": "VideoObject",
+  "name": "Contenido destacado - Soy El Krizz",
+  "description": "Historias reales y entrevistas.",
+  "thumbnailUrl": [
+    "https://img.youtube.com/vi/pbfb7nQKcQE/hqdefault.jpg"
+  ],
+  "contentUrl": "https://www.youtube.com/watch?v=pbfb7nQKcQE",
+  "embedUrl": "https://www.youtube.com/embed/pbfb7nQKcQE"
 }
-</script>
+        </script>
     </article>
 
     <!-- ================= ADMIN (MISMA PAGINA) ================= -->
     <section class="admin-card" id="admin" aria-label="Administrar videos">
         <h3>Administrar videos</h3>
         <p class="admin-meta">
-            Cambia el video pegando el link o el ID de YouTube. Esto guarda en Firestore (colección <code>videos</code>).
+            Cambia el video pegando el link o el ID de YouTube. También puedes subir miniaturas (thumbnails) a Cloudinary.
+            Todo se guarda en Firestore (colección <code>videos</code>).
         </p>
 
         <div>
@@ -280,8 +276,9 @@ modal.onclick = e => {
 activarModal();
 </script>
 
-<!-- Firestore (solo lectura): editas los videos desde Firebase Console -->
+<!-- Firebase (Auth + Firestore) + Cloudinary config -->
 <script src="./firebase-config.js"></script>
+<script src="./cloudinary-config.js"></script>
 
 <script type="module">
 import { initializeApp, getApps } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-app.js";
@@ -292,8 +289,14 @@ import {
   signInWithPopup,
   signOut,
 } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-auth.js";
-import { getFirestore, doc, getDoc } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-firestore.js";
-import { setDoc, serverTimestamp } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-firestore.js";
+import {
+  getFirestore,
+  doc,
+  getDoc,
+  setDoc,
+  serverTimestamp,
+  deleteField,
+} from "https://www.gstatic.com/firebasejs/10.8.0/firebase-firestore.js";
 
 const CACHE_KEY = "krizz_videos_cache_v1";
 
@@ -329,6 +332,78 @@ function normalizeYouTubeId(value) {
   return null;
 }
 
+function cloudinaryCfg() {
+  const c = window.CLOUDINARY_CONFIG;
+  if (!c || !c.cloudName || !c.unsignedUploadPreset) return null;
+  return c;
+}
+
+function pickImageFile() {
+  return new Promise((resolve) => {
+    const input = document.createElement("input");
+    input.type = "file";
+    input.accept = "image/*";
+    input.onchange = () => resolve(input.files?.[0] || null);
+    input.click();
+  });
+}
+
+async function uploadImageToCloudinary(file) {
+  const c = cloudinaryCfg();
+  if (!c) {
+    throw new Error("Cloudinary no configurado (cloudName / unsignedUploadPreset).");
+  }
+
+  if (!file || !(file instanceof File)) throw new Error("Archivo inválido.");
+  if (!String(file.type || "").startsWith("image/")) throw new Error("Solo se permiten imágenes.");
+
+  const MAX_MB = 6;
+  if (file.size > MAX_MB * 1024 * 1024) {
+    throw new Error(`Imagen muy grande (máx ${MAX_MB}MB).`);
+  }
+
+  const form = new FormData();
+  form.append("file", file);
+  form.append("upload_preset", c.unsignedUploadPreset);
+  if (c.folder) form.append("folder", c.folder);
+
+  const url = `https://api.cloudinary.com/v1_1/${c.cloudName}/image/upload`;
+  const res = await fetch(url, { method: "POST", body: form });
+  const data = await res.json().catch(() => ({}));
+  if (!res.ok) {
+    const msg = data?.error?.message || "No se pudo subir a Cloudinary.";
+    throw new Error(msg);
+  }
+
+  if (!data?.secure_url) throw new Error("Cloudinary no devolvió secure_url.");
+  return String(data.secure_url);
+}
+
+function defaultYouTubeThumbUrl(videoId) {
+  return `https://img.youtube.com/vi/${videoId}/hqdefault.jpg`;
+}
+
+function updateVideoLd(post, videoId, thumbUrl) {
+  const script = post?.querySelector?.('script[type="application/ld+json"].video-ld');
+  if (!script) return;
+
+  const title = post.querySelector(".post-content h3")?.textContent?.trim() || "Video";
+  const desc = post.querySelector(".post-content p")?.textContent?.trim() || "Video de Soy El Krizz";
+
+  const data = {
+    "@context": "https://schema.org",
+    "@type": "VideoObject",
+    name: `${title} - Soy El Krizz`,
+    description: desc,
+    thumbnailUrl: [thumbUrl],
+    contentUrl: `https://www.youtube.com/watch?v=${videoId}`,
+    embedUrl: `https://www.youtube.com/embed/${videoId}`,
+  };
+
+  // Keep it compact; Google parses both minified and pretty JSON-LD.
+  script.textContent = JSON.stringify(data);
+}
+
 function applyVideo(slot, videoId, thumbUrl) {
   const post = document.querySelector(`.post[data-slot="${slot}"]`);
   if (!post) return;
@@ -337,15 +412,18 @@ function applyVideo(slot, videoId, thumbUrl) {
   const img = thumb?.querySelector("img");
   if (!thumb || !img) return;
 
-  const id = normalizeYouTubeId(videoId);
-  if (id) thumb.dataset.video = id;
+  const id = normalizeYouTubeId(videoId) || normalizeYouTubeId(thumb.dataset.video);
+  if (!id) return;
 
-  if (typeof thumbUrl === "string" && /^https?:\/\//.test(thumbUrl)) {
-    img.src = thumbUrl;
-    return;
-  }
+  thumb.dataset.video = id;
 
-  if (id) img.src = `https://img.youtube.com/vi/${id}/hqdefault.jpg`;
+  const finalThumbUrl =
+    (typeof thumbUrl === "string" && /^https?:\/\//.test(thumbUrl))
+      ? thumbUrl
+      : defaultYouTubeThumbUrl(id);
+
+  img.src = finalThumbUrl;
+  updateVideoLd(post, id, finalThumbUrl);
 }
 
 function setStatus(msg) {
@@ -366,15 +444,29 @@ function renderAdminRows(slots) {
 
   editorEl.innerHTML = "";
   slots.forEach((slot) => {
-    const row = document.createElement("div");
-    row.className = "admin-row";
-    row.dataset.slot = String(slot);
-    row.innerHTML = `
+    const videoRow = document.createElement("div");
+    videoRow.className = "admin-row admin-row--video";
+    videoRow.dataset.slot = String(slot);
+    videoRow.innerHTML = `
       <label>Slot ${String(slot)}</label>
       <input type="text" class="videoInput" placeholder="Pega link o ID de YouTube">
-      <button class="btnLink btnSave">Guardar</button>
+      <button class="btnLink btnVideoSave">Guardar video</button>
     `;
-    editorEl.appendChild(row);
+
+    const thumbRow = document.createElement("div");
+    thumbRow.className = "admin-row admin-row--thumb";
+    thumbRow.dataset.slot = String(slot);
+    thumbRow.innerHTML = `
+      <label>Thumb</label>
+      <input type="text" class="thumbInput" placeholder="URL de miniatura (opcional)">
+      <div class="btnGroup">
+        <button class="btnLink btnThumbUpload" title="Sube una imagen a Cloudinary">Subir</button>
+        <button class="btnLink btnThumbSave" title="Guarda el thumbUrl en Firestore">Guardar</button>
+      </div>
+    `;
+
+    editorEl.appendChild(videoRow);
+    editorEl.appendChild(thumbRow);
   });
 }
 
@@ -429,23 +521,20 @@ async function loadVideosFromFirestore() {
       }
     });
 
-    editorEl.addEventListener("click", async (e) => {
-      const btn = e.target?.closest?.(".btnSave");
-      if (!btn) return;
+    function getCurrentThumbValue(slot) {
+      const row = editorEl.querySelector(`.admin-row--thumb[data-slot="${String(slot)}"]`);
+      const input = row?.querySelector?.(".thumbInput");
+      return String(input?.value || "").trim();
+    }
 
-      const row = btn.closest(".admin-row");
-      const slot = row?.dataset?.slot;
-      const input = row?.querySelector?.(".videoInput");
-      const raw = input?.value;
-      if (!slot || !input) return;
-
+    async function saveVideoId(slot, raw) {
       const id = normalizeYouTubeId(raw);
       if (!id) {
         setStatus("Pega un link o ID válido de YouTube.");
         return;
       }
 
-      setStatus("Guardando...");
+      setStatus("Guardando video...");
       try {
         await setDoc(
           doc(db, "videos", String(slot)),
@@ -453,22 +542,116 @@ async function loadVideosFromFirestore() {
           { merge: true }
         );
 
-        // Update UI + cache immediately.
-        applyVideo(slot, id, null);
+        // Keep current thumb if present.
         const cached = readCache();
+        const cachedThumb = cached?.[String(slot)]?.thumbUrl ?? null;
+        const currentThumb = getCurrentThumbValue(slot);
+        const thumbUrl = currentThumb && /^https?:\/\//.test(currentThumb) ? currentThumb : cachedThumb;
+
+        applyVideo(slot, id, thumbUrl);
+
         const nextCache = (cached && typeof cached === "object") ? { ...cached } : {};
-        nextCache[String(slot)] = { videoId: id, thumbUrl: nextCache?.[String(slot)]?.thumbUrl ?? null };
+        nextCache[String(slot)] = { videoId: id, thumbUrl: thumbUrl ?? null };
         writeCache(nextCache);
         window.activarModal?.();
 
-        setStatus(`Guardado slot ${slot}.`);
+        setStatus(`Video guardado (slot ${slot}).`);
       } catch (err) {
         console.error(err);
         if (err?.code === "permission-denied") {
           setStatus("Permiso denegado. Ajusta tus Firestore Rules para permitir write solo a tu usuario.");
         } else {
-          setStatus("Error guardando en Firestore.");
+          setStatus("Error guardando video en Firestore.");
         }
+      }
+    }
+
+    async function saveThumbUrl(slot, rawUrl) {
+      const url = String(rawUrl || "").trim();
+      if (url && !/^https?:\/\//.test(url)) {
+        setStatus("El thumbUrl debe comenzar con http:// o https://");
+        return;
+      }
+
+      setStatus("Guardando miniatura...");
+      try {
+        const payload = url
+          ? { thumbUrl: url, thumbUpdatedAt: serverTimestamp() }
+          : { thumbUrl: deleteField(), thumbUpdatedAt: serverTimestamp() };
+
+        await setDoc(doc(db, "videos", String(slot)), payload, { merge: true });
+
+        const currentId = document.querySelector(`.post[data-slot="${String(slot)}"] .video-thumb`)?.dataset?.video ?? null;
+        applyVideo(slot, currentId, url || null);
+
+        const cached = readCache();
+        const nextCache = (cached && typeof cached === "object") ? { ...cached } : {};
+        const prev = nextCache[String(slot)] || {};
+        nextCache[String(slot)] = { videoId: prev.videoId ?? currentId ?? null, thumbUrl: url || null };
+        writeCache(nextCache);
+        window.activarModal?.();
+
+        setStatus(url ? `Miniatura guardada (slot ${slot}).` : `Miniatura quitada (slot ${slot}).`);
+      } catch (err) {
+        console.error(err);
+        if (err?.code === "permission-denied") {
+          setStatus("Permiso denegado. Ajusta tus Firestore Rules para permitir write solo a tu usuario.");
+        } else {
+          setStatus("Error guardando miniatura en Firestore.");
+        }
+      }
+    }
+
+    async function uploadThumb(slot) {
+      if (!cloudinaryCfg()) {
+        setStatus("Configura cloudinary-config.js (cloudName y unsignedUploadPreset).");
+        return;
+      }
+
+      const file = await pickImageFile();
+      if (!file) return;
+
+      setStatus("Subiendo a Cloudinary...");
+      try {
+        const url = await uploadImageToCloudinary(file);
+
+        const row = editorEl.querySelector(`.admin-row--thumb[data-slot="${String(slot)}"]`);
+        const input = row?.querySelector?.(".thumbInput");
+        if (input) input.value = url;
+
+        await saveThumbUrl(slot, url);
+      } catch (err) {
+        console.error(err);
+        setStatus(err?.message || "No se pudo subir a Cloudinary.");
+      }
+    }
+
+    editorEl.addEventListener("click", async (e) => {
+      const btnVideo = e.target?.closest?.(".btnVideoSave");
+      const btnUpload = e.target?.closest?.(".btnThumbUpload");
+      const btnThumbSave = e.target?.closest?.(".btnThumbSave");
+      if (!btnVideo && !btnUpload && !btnThumbSave) return;
+
+      const btn = btnVideo || btnUpload || btnThumbSave;
+      const slot = btn?.closest?.(".admin-row")?.dataset?.slot;
+      if (!slot) return;
+
+      if (btnVideo) {
+        const row = editorEl.querySelector(`.admin-row--video[data-slot="${String(slot)}"]`);
+        const input = row?.querySelector?.(".videoInput");
+        await saveVideoId(slot, input?.value || "");
+        return;
+      }
+
+      if (btnUpload) {
+        await uploadThumb(slot);
+        return;
+      }
+
+      if (btnThumbSave) {
+        const row = editorEl.querySelector(`.admin-row--thumb[data-slot="${String(slot)}"]`);
+        const input = row?.querySelector?.(".thumbInput");
+        await saveThumbUrl(slot, input?.value || "");
       }
     });
 
@@ -494,9 +677,14 @@ async function loadVideosFromFirestore() {
             const snap = await getDoc(doc(db, "videos", String(slot)));
             if (!snap.exists()) return;
             const data = snap.data() || {};
-            const row = editorEl.querySelector(`.admin-row[data-slot="${String(slot)}"]`);
-            const input = row?.querySelector?.(".videoInput");
-            if (input && !input.value && data.videoId) input.value = data.videoId;
+
+            const vRow = editorEl.querySelector(`.admin-row--video[data-slot="${String(slot)}"]`);
+            const vInput = vRow?.querySelector?.(".videoInput");
+            if (vInput && !vInput.value && data.videoId) vInput.value = data.videoId;
+
+            const tRow = editorEl.querySelector(`.admin-row--thumb[data-slot="${String(slot)}"]`);
+            const tInput = tRow?.querySelector?.(".thumbInput");
+            if (tInput && !tInput.value && data.thumbUrl) tInput.value = data.thumbUrl;
           })
         );
       } catch {

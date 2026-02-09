@@ -411,6 +411,18 @@ p {
     border-color: #475569;
 }
 
+.admin-row .btnLink {
+    margin-top: 0;
+    white-space: nowrap;
+}
+
+.btnGroup {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+}
+
 .admin-meta {
     margin-top: 12px;
     color: #94a3b8;

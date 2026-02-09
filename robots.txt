@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://leandro-designer.github.io/La-Casa-de-Krizz/sitemap.xml
+
