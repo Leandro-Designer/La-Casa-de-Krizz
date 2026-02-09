@@ -230,6 +230,7 @@
 <footer class="footer">
     <p>© 2026 La Casa de Krizz · Historias reales del emigrante cubano</p>
     <p>Desarrollado por <a href="https://wa.me/5551999422335" target="_blank" rel="noopener noreferrer">Leandro Milan</a></p>
+    <p><a class="admin-link" href="./admin.html">Administrar videos</a></p>
 </footer>
 
 <!-- ========= SCRIPT ========= -->
@@ -263,16 +264,7 @@ activarModal();
 </script>
 
 <!-- Firestore (solo lectura): editas los videos desde Firebase Console -->
-<script>
-window.FIREBASE_CONFIG = {
-  apiKey: "AIzaSyBAXIQzY64m6Wi8TiInXWgIlKB62qNLuCw",
-  authDomain: "home-krizz.firebaseapp.com",
-  projectId: "home-krizz",
-  storageBucket: "home-krizz.firebasestorage.app",
-  messagingSenderId: "703865238749",
-  appId: "1:703865238749:web:b13125d9fe00a649421734"
-};
-</script>
+<script src="./firebase-config.js"></script>
 
 <script type="module">
 import { initializeApp, getApps } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-app.js";

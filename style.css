@@ -345,6 +345,89 @@ p {
     color: #94a3b8;
 }
 
+.admin-link {
+    display: inline-block;
+    margin-top: 10px;
+    text-decoration: none;
+    font-size: 13px;
+    padding: 8px 14px;
+    border-radius: 999px;
+    background: #020617;
+    color: #e2e8f0;
+    border: 1px solid #1e293b;
+    transition: all 0.25s ease;
+}
+
+.admin-link:hover {
+    background: #0b1220;
+    border-color: #334155;
+}
+
+/* ================= ADMIN PAGE ================= */
+.admin-panel {
+    max-width: 900px;
+    margin: 60px auto;
+    padding: 0 20px;
+}
+
+.admin-card {
+    background: #0206176c;
+    border-radius: 16px;
+    padding: 22px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.45);
+}
+
+.admin-actions {
+    margin-top: 14px;
+    display: grid;
+    gap: 12px;
+}
+
+.admin-row {
+    display: grid;
+    grid-template-columns: 90px 1fr auto;
+    gap: 10px;
+    align-items: center;
+}
+
+.admin-row label {
+    color: #cbd5e1;
+    font-weight: 600;
+    font-size: 13px;
+}
+
+.admin-row input {
+    width: 100%;
+    padding: 10px 12px;
+    border-radius: 10px;
+    border: 1px solid #1e293b;
+    background: #020617;
+    color: #f8fafc;
+    outline: none;
+}
+
+.admin-row input:focus {
+    border-color: #475569;
+}
+
+.admin-meta {
+    margin-top: 12px;
+    color: #94a3b8;
+    font-size: 13px;
+}
+
+.admin-status {
+    margin-top: 10px;
+    font-size: 13px;
+    color: #e2e8f0;
+}
+
+@media (max-width: 700px) {
+    .admin-row {
+        grid-template-columns: 1fr;
+    }
+}
+
 /* ================= ANIMACIONES ================= */
 @keyframes fadeUp {
     from {
