@@ -30,7 +30,6 @@
     <link rel="preconnect" href="https://img.youtube.com">
     <link rel="preconnect" href="https://www.youtube.com">
     <link rel="preconnect" href="https://www.gstatic.com">
-    <link rel="preconnect" href="https://la-casa-de-krizz-default-rtdb.firebaseio.com">
     <link rel="preload" as="image" href="imagenes/Soy-el-Krizz.png">
 
     <!-- CSS -->
@@ -125,7 +124,8 @@
             <h3>Video más reciente</h3>
             <p>Contenido nuevo del canal.</p>
             <button class="adminAccess">🔒 Acceso administrador</button>
-            <button class="btnLink">➕ Subir / cambiar video</button>
+            <button class="btnVideo">➕ Cambiar video</button>
+            <button class="btnThumb">🖼 Subir thumbnail</button>
         </div>
 
         <script type="application/ld+json">
@@ -160,7 +160,8 @@
             <h3>Contenido destacado</h3>
             <p>Historias reales y entrevistas.</p>
             <button class="adminAccess">🔒 Acceso administrador</button>
-            <button class="btnLink">➕ Subir / cambiar video</button>
+            <button class="btnVideo">➕ Cambiar video</button>
+            <button class="btnThumb">🖼 Subir thumbnail</button>
         </div>
 
         <script type="application/ld+json">
@@ -261,41 +262,11 @@ modal.onclick = e => {
 activarModal();
 </script>
 
+<script src="./site-config.js"></script>
 <script type="module">
-/* ================= ADMIN (CARGA DIFERIDA) =================
-   Firebase se carga solo cuando el admin lo activa.
-   Evita warnings/errores de red en usuarios normales y mejora rendimiento.
-*/
-
-// ocultar botones al cargar
-document.querySelectorAll(".btnLink").forEach(btn => {
-    btn.style.display = "none";
-});
-
-async function activarAdmin() {
-    const pass = prompt("Contraseña de administrador:");
-    if (pass !== "Soyelkrizz2026") {
-        alert("Contraseña incorrecta ❌");
-        return;
-    }
-
-    document.querySelectorAll(".btnLink").forEach(b => {
-        b.style.display = "block";
-    });
-
-    try {
-        const mod = await import("./admin-firebase.js");
-        await mod.initAdminFirebase();
-        alert("Modo administrador activado ✔");
-    } catch (err) {
-        console.error("No se pudo cargar Firebase (admin). Revisa configuración/DNS.", err);
-        alert("No se pudo conectar con Firebase. Revisa la configuración y vuelve a intentar.");
-    }
-}
-
-document.querySelectorAll(".adminAccess").forEach(btn => {
-    btn.addEventListener("click", activarAdmin);
-});
+  import { loadVideosFromFirestore, bindAdminFirestore } from "./videos-firestore.js";
+  loadVideosFromFirestore();
+  bindAdminFirestore();
 </script>
 
 </body>
