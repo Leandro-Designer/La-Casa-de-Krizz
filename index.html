@@ -284,7 +284,7 @@ function applyVideo(slot, videoId, thumbUrl) {
     thumb.dataset.video = videoId;
   }
 
-  if (typeof thumbUrl === "string" && /^https?:\\/\\//.test(thumbUrl)) {
+  if (typeof thumbUrl === "string" && /^https?:\/\//.test(thumbUrl)) {
     img.src = thumbUrl;
     return;
   }
