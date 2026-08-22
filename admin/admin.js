@@ -22,7 +22,7 @@ import {
 const firebaseConfig = window.FIREBASE_CONFIG;
 const ADMIN_EMAILS = ["TU_CORREO_ADMIN@gmail.com"]; // Cambia esto por el correo real del admin.
 const VIDEO_SLOTS = [
-  { id: "1", label: "Video mas reciente" },
+  { id: "1", label: "Video más reciente" },
   { id: "2", label: "Contenido destacado" },
 ];
 
@@ -39,6 +39,7 @@ const btnSignOut = $("btnSignOut");
 const dashboard = $("dashboard");
 const videoPanel = $("videoPanel");
 const blogPanel = $("blogPanel");
+const opsPanel = $("opsPanel");
 const videoEditor = $("videoEditor");
 const blogForm = $("blogForm");
 const postsList = $("postsList");
@@ -52,6 +53,7 @@ function showAdminUI(show) {
   dashboard.hidden = !show;
   videoPanel.hidden = !show;
   blogPanel.hidden = !show;
+  opsPanel.hidden = !show;
   btnSignOut.hidden = !show;
   btnSignIn.hidden = show;
 }
@@ -114,7 +116,7 @@ async function saveVideo(row) {
   const videoId = normalizeYouTubeId(row.querySelector(".videoInput").value);
   const thumbUrl = row.querySelector(".thumbInput").value.trim();
   if (!videoId) {
-    setStatus("Pega un link o ID valido de YouTube.");
+    setStatus("Pega un link o ID válido de YouTube.");
     return;
   }
   await setDoc(doc(db, "videos", slot), {
@@ -154,7 +156,7 @@ function renderPosts() {
   postsList.innerHTML = "";
   $("postsCount").textContent = String(blogPosts.length);
   if (!blogPosts.length) {
-    postsList.innerHTML = '<p class="admin-meta">Todavia no hay publicaciones.</p>';
+    postsList.innerHTML = '<p class="admin-meta">Todavía no hay públicaciones.</p>';
     return;
   }
   blogPosts.forEach((post) => {
@@ -184,7 +186,7 @@ async function savePost(event) {
   event.preventDefault();
   const post = readPostForm();
   if (!post.title || !post.slug || !post.date || !post.excerpt || !post.body) {
-    setStatus("Completa titulo, slug, fecha, resumen y contenido.");
+    setStatus("Completa título, slug, fecha, resumen y contenido.");
     return;
   }
   await setDoc(doc(db, "blogPosts", post.id), {
@@ -209,7 +211,7 @@ btnSignIn.addEventListener("click", async () => {
     console.error(error);
     setStatus(error?.code === "auth/unauthorized-domain"
       ? "Autoriza este dominio en Firebase Authentication."
-      : "No se pudo iniciar sesion.");
+      : "No se pudo iniciar sesión.");
   }
 });
 
@@ -247,7 +249,7 @@ postsList.addEventListener("click", async (event) => {
     fillPostForm(blogPosts.find((post) => post.id === editId));
     return;
   }
-  if (deleteId && confirm("Borrar esta publicacion?")) {
+  if (deleteId && confirm("Borrar esta públicacion?")) {
     await deleteDoc(doc(db, "blogPosts", deleteId));
     setStatus("Post borrado.");
     await loadPosts();
@@ -259,11 +261,11 @@ onAuthStateChanged(auth, async (user) => {
   userInfoEl.textContent = "";
   if (!user) return;
 
-  userInfoEl.textContent = `Sesion iniciada: ${user.email || user.uid}`;
+  userInfoEl.textContent = `Sesión iniciada: ${user.email || user.uid}`;
   try {
     const allowed = await isAdmin(user);
     if (!allowed) {
-      setStatus("Tu cuenta inicio sesion, pero no tiene rol admin.");
+      setStatus("Tu cuenta inició sesión, pero no tiene rol admin.");
       await signOut(auth);
       return;
     }
@@ -276,3 +278,6 @@ onAuthStateChanged(auth, async (user) => {
     setStatus("No se pudo verificar el rol admin.");
   }
 });
+
+
+

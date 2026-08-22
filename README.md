@@ -1,47 +1,69 @@
 ﻿# La Casa de Krizz
 
-Sitio publico y panel administrativo para gestionar contenido multimedia de Soy El Krizz.
+Sitio público y panel administrativo para gestionar contenido multimedia de Soy El Krizz. La web pública queda limpia para visitantes, mientras que `/admin/` concentra la gestión de videos, publicaciones del blog y acceso protegido.
+
+## Links
+
+- Web pública: https://leandro-designer.github.io/La-Casa-de-Krizz/
+- Panel admin: https://leandro-designer.github.io/La-Casa-de-Krizz/admin/
 
 ## Stack
 
-- HTML, CSS y JavaScript modular
-- Firebase Authentication con login de Google
-- Firestore para videos dinamicos, roles y publicaciones del blog
-- Cloudinary para miniaturas e imagenes
-- Integracion con YouTube mediante ID o URL de video
+- **Frontend:** HTML5, CSS3 y JavaScript modular.
+- **Autenticación:** Firebase Authentication con proveedor Google.
+- **Base de datos:** Cloud Firestore para videos dinámicos, blog y roles.
+- **Autorización:** documento `admins/{uid}` + reglas de Firestore.
+- **Multimedia:** integración con YouTube por ID o URL y miniaturas externas.
+- **Imágenes:** Cloudinary preparado para miniaturas e imágenes del contenido.
+- **SEO:** meta description, Open Graph, Twitter Card, canonical, sitemap y robots.
+- **Deploy:** GitHub Pages.
 
 ## Features
 
-- Web publica limpia sin controles administrativos en el DOM
-- `/admin/` separado con login y dashboard
-- Autenticacion y autorizacion por rol `admin`
-- Edicion de "Video mas reciente" y "Contenido destacado" desde Firestore
-- Blog dinamico con crear, editar, borrar, fecha, imagen, slug, resumen y contenido
-- Footer profesional enlazado al portafolio
-- Base SEO con meta tags, Open Graph, sitemap y robots
-- Layout responsive
+- Web pública sin controles administrativos en el DOM.
+- `/admin/` separado con login y dashboard.
+- Autenticación y autorización por rol `admin`.
+- Videos dinámicos para "Video más reciente" y "Contenido destacado".
+- Blog CRUD con crear, editar, borrar, fecha, imagen, slug, resumen y contenido.
+- Lectura pública desde Firestore y escritura restringida al admin.
+- Carga rápida de videos: HTML visible al instante y Firestore actualiza en segundo plano.
+- Footer profesional enlazado al portafolio.
+- Diseño responsive.
 
-## Estructura
+## Capturas
+
+> Agrega las imágenes dentro de `docs/screenshots/` y actualiza estas rutas cuando tengas las capturas finales.
+
+| Vista | Captura |
+| --- | --- |
+| Home pública | `docs/screenshots/home-publica.png` |
+| Videos dinámicos | `docs/screenshots/videos-dinamicos.png` |
+| Login admin | `docs/screenshots/admin-login.png` |
+| Dashboard admin | `docs/screenshots/admin-dashboard.png` |
+| Blog CRUD | `docs/screenshots/blog-crud.png` |
+
+## Arquitectura
 
 ```text
 /
-├── index.html              # Sitio publico
-├── style.css               # Estilos publicos
-├── public-blog.js          # Carga publicaciones desde Firestore
-├── firebase-config.js      # Config publica de Firebase
-├── cloudinary-config.js    # Config publica de Cloudinary
-├── firestore.rules         # Reglas recomendadas de seguridad
+├── index.html              # Sitio público
+├── style.css               # Estilos públicos
+├── public-videos.js        # Carga videos desde Firestore sin bloquear el HTML
+├── public-blog.js          # Carga publicaciones públicas desde Firestore
+├── firebase-config.js      # Config pública de Firebase Web SDK
+├── cloudinary-config.js    # Config pública de Cloudinary
+├── firestore.rules         # Reglas de seguridad recomendadas
 └── admin/
     ├── index.html          # Dashboard privado
-    ├── admin.css
-    └── admin.js
+    ├── admin.css           # Estilos del panel
+    └── admin.js            # Auth, roles, videos y blog CRUD
 ```
 
-## Configurar administrador
+## Firebase Auth + Firestore
 
-1. Activa Google como proveedor en Firebase Authentication.
-2. Autoriza el dominio del sitio en Authentication > Settings > Authorized domains.
-3. Crea un documento en Firestore:
+El panel usa Firebase Authentication para iniciar sesión con Google. Iniciar sesión no basta para administrar: después del login, `admin/admin.js` verifica si el usuario tiene autorización consultando Firestore.
+
+El rol se define en:
 
 ```text
 admins/{UID_DEL_USUARIO}
@@ -49,26 +71,30 @@ role: "admin"
 email: "correo@ejemplo.com"
 ```
 
-4. Publica `firestore.rules` desde la consola o Firebase CLI.
-5. En `admin/admin.js`, cambia `TU_CORREO_ADMIN@gmail.com` por el correo real o elimina esa lista si vas a depender solo del documento `admins/{uid}`.
+Esto permite explicar dos conceptos separados:
 
-## Colecciones Firestore
+- **Autenticación:** comprobar quién es el usuario con Firebase Auth.
+- **Autorización:** comprobar qué puede hacer ese usuario mediante el rol `admin`.
 
-### `videos/{slotId}`
+## Reglas de Firestore
 
-```json
-{
-  "videoId": "gFSZrlOdkKU",
-  "thumbUrl": "https://...",
-  "updatedAt": "serverTimestamp"
+`firestore.rules` permite lectura pública de `videos` y `blogPosts`, pero restringe escritura solo a usuarios con rol admin.
+
+```js
+function isAdmin() {
+  return request.auth != null
+    && exists(/databases/$(database)/documents/admins/$(request.auth.uid))
+    && get(/databases/$(database)/documents/admins/$(request.auth.uid)).data.role == 'admin';
 }
 ```
 
-### `blogPosts/{postId}`
+## CRUD del blog
+
+La colección `blogPosts` almacena publicaciones editables desde `/admin/`.
 
 ```json
 {
-  "title": "Titulo del post",
+  "title": "Título del post",
   "slug": "titulo-del-post",
   "image": "https://...",
   "date": "2026-08-22",
@@ -78,9 +104,31 @@ email: "correo@ejemplo.com"
 }
 ```
 
-## Capturas sugeridas
+Operaciones disponibles:
 
-- Home publica sin controles admin
-- `/admin/` antes del login
-- Dashboard con videos y posts
-- Formulario de edicion de blog
+- **Crear:** formulario del dashboard admin.
+- **Leer:** blog público desde `public-blog.js`.
+- **Editar:** botón Editar en la lista de posts.
+- **Borrar:** botón Borrar protegido por reglas de Firestore.
+
+## Videos dinámicos
+
+La colección `videos` controla los slots publicados en la home.
+
+```json
+{
+  "videoId": "gFSZrlOdkKU",
+  "thumbUrl": "https://...",
+  "updatedAt": "serverTimestamp"
+}
+```
+
+`public-videos.js` muestra los videos base del HTML inmediatamente, aplica caché local si existe y luego actualiza desde Firestore en segundo plano. Esto evita que la página pública dependa de la latencia de Firebase para mostrar el contenido principal.
+
+## Configurar administrador
+
+1. Activa Google como proveedor en Firebase Authentication.
+2. Autoriza el dominio del sitio en Authentication > Settings > Authorized domains.
+3. Crea el documento `admins/{UID_DEL_USUARIO}` con `role: "admin"`.
+4. Publica `firestore.rules` desde Firebase Console o Firebase CLI.
+5. En `admin/admin.js`, cambia `TU_CORREO_ADMIN@gmail.com` por el correo real o elimina esa lista si vas a depender solo del documento `admins/{uid}`.

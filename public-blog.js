@@ -23,7 +23,7 @@ function escapeHtml(value) {
 function renderPosts(posts) {
   if (!target) return;
   if (!posts.length) {
-    target.innerHTML = '<p class="blog-empty">Pronto habra nuevas publicaciones.</p>';
+    target.innerHTML = '<p class="blog-empty">Pronto habrá nuevas públicaciones.</p>';
     return;
   }
 
@@ -50,3 +50,4 @@ async function loadBlogPosts() {
 }
 
 loadBlogPosts();
+

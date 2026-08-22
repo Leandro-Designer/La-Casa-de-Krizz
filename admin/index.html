@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="robots" content="noindex, nofollow">
   <title>Admin | La Casa de Krizz</title>
-  <link rel="icon" href="../imagenes/logo-blog2.png">
+  <link rel="icon" href="../imágenes/logo-blog2.png">
   <link rel="stylesheet" href="../style.css">
   <link rel="stylesheet" href="./admin.css">
 </head>
@@ -13,12 +13,12 @@
   <header class="header">
     <div class="header-container">
       <a class="brand admin-brand" href="../">
-        <img src="../imagenes/logo-blog2.png" alt="Logo La Casa de Krizz">
+        <img src="../imágenes/logo-blog2.png" alt="Logo La Casa de Krizz">
         <span>La Casa de Krizz</span>
       </a>
       <nav class="nav admin-nav">
-        <a href="../">Sitio publico</a>
-        <button class="btnLink" id="btnSignOut" hidden>Cerrar sesion</button>
+        <a href="../">Sitio público</a>
+        <button class="btnLink" id="btnSignOut" hidden>Cerrar sesión</button>
       </nav>
     </div>
   </header>
@@ -27,10 +27,10 @@
     <section class="admin-hero">
       <div>
         <p class="eyebrow">Panel administrativo</p>
-        <h1>Gestion de contenido</h1>
-        <p>Administra videos destacados, publicaciones del blog e imagenes sin tocar el codigo publico.</p>
+        <h1>Gestión de contenido</h1>
+        <p>Administra videos destacados, públicaciones del blog e imágenes sin tocar el código público.</p>
       </div>
-      <button class="btnLink" id="btnSignIn">Iniciar sesion con Google</button>
+      <button class="btnLink" id="btnSignIn">Iniciar sesión con Google</button>
     </section>
 
     <div class="admin-status" id="status" role="status"></div>
@@ -54,8 +54,8 @@
     <section class="admin-card" id="videoPanel" hidden>
       <div class="section-head">
         <div>
-          <h2>Videos dinamicos</h2>
-          <p class="admin-meta">Edita los slots usados por la pagina publica: video reciente y contenido destacado.</p>
+          <h2>Videos dinámicos</h2>
+          <p class="admin-meta">Edita los slots usados por la página pública: video reciente y contenido destacado.</p>
         </div>
       </div>
       <div class="admin-actions" id="videoEditor"></div>
@@ -65,14 +65,14 @@
       <div class="section-head">
         <div>
           <h2>Blog CRUD</h2>
-          <p class="admin-meta">Crea, edita o elimina publicaciones guardadas en Firestore.</p>
+          <p class="admin-meta">Crea, edita o elimina públicaciones guardadas en Firestore.</p>
         </div>
       </div>
 
       <form class="blog-form" id="blogForm">
         <input type="hidden" id="postId">
-        <label>Titulo<input id="postTitle" required maxlength="90" placeholder="Ej: Una historia de emigracion real"></label>
-        <label>Slug<input id="postSlug" required maxlength="90" placeholder="historia-emigracion-real"></label>
+        <label>Título<input id="postTitle" required maxlength="90" placeholder="Ej: Una historia de emigración real"></label>
+        <label>Slug<input id="postSlug" required maxlength="90" placeholder="historia-emigración-real"></label>
         <label>Imagen<input id="postImage" type="url" placeholder="https://..."></label>
         <label>Fecha<input id="postDate" type="date" required></label>
         <label>Resumen<textarea id="postExcerpt" rows="3" required maxlength="220"></textarea></label>
@@ -92,3 +92,5 @@
   <script type="module" src="./admin.js"></script>
 </body>
 </html>
+
+
