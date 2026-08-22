@@ -1,4 +1,4 @@
-/* ================= RESET ================= */
+﻿/* ================= RESET ================= */
 * {
     margin: 0;
     padding: 0;
@@ -91,7 +91,7 @@ body {
     color: #e5e7eb;
 }
 
-/* ================= BIOGRAFÍA ================= */
+/* ================= BIOGRAFÃA ================= */
 .author-bio {
     max-width: 950px;
     margin: 80px auto 50px;
@@ -363,84 +363,6 @@ p {
     border-color: #334155;
 }
 
-/* ================= ADMIN PAGE ================= */
-.admin-panel {
-    max-width: 900px;
-    margin: 60px auto;
-    padding: 0 20px;
-}
-
-.admin-card {
-    background: #0206176c;
-    border-radius: 16px;
-    padding: 22px;
-    margin-top: 18px;
-    box-shadow: 0 10px 25px rgba(0,0,0,0.45);
-}
-
-.admin-actions {
-    margin-top: 14px;
-    display: grid;
-    gap: 12px;
-}
-
-.admin-row {
-    display: grid;
-    grid-template-columns: 90px 1fr auto;
-    gap: 10px;
-    align-items: center;
-}
-
-.admin-row label {
-    color: #cbd5e1;
-    font-weight: 600;
-    font-size: 13px;
-}
-
-.admin-row input {
-    width: 100%;
-    padding: 10px 12px;
-    border-radius: 10px;
-    border: 1px solid #1e293b;
-    background: #020617;
-    color: #f8fafc;
-    outline: none;
-}
-
-.admin-row input:focus {
-    border-color: #475569;
-}
-
-.admin-row .btnLink {
-    margin-top: 0;
-    white-space: nowrap;
-}
-
-.btnGroup {
-    display: flex;
-    gap: 10px;
-    flex-wrap: wrap;
-    justify-content: flex-end;
-}
-
-.admin-meta {
-    margin-top: 12px;
-    color: #94a3b8;
-    font-size: 13px;
-}
-
-.admin-status {
-    margin-top: 10px;
-    font-size: 13px;
-    color: #e2e8f0;
-}
-
-@media (max-width: 700px) {
-    .admin-row {
-        grid-template-columns: 1fr;
-    }
-}
-
 /* ================= ANIMACIONES ================= */
 @keyframes fadeUp {
     from {
@@ -468,3 +390,38 @@ p {
         height: 220px;
     }
 }
+.blog-posts {
+    display: grid;
+    gap: 14px;
+    margin-top: 18px;
+}
+
+.blog-preview {
+    border-top: 1px solid #1e293b;
+    padding-top: 14px;
+}
+
+.blog-preview img {
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    object-fit: cover;
+    border-radius: 8px;
+    margin-bottom: 10px;
+}
+
+.blog-preview span,
+.blog-empty {
+    color: #94a3b8;
+    font-size: 12px;
+}
+
+.blog-preview h4 {
+    margin: 4px 0;
+    font-size: 16px;
+}
+
+.blog-preview p {
+    color: #cbd5e1;
+    font-size: 13px;
+}
+

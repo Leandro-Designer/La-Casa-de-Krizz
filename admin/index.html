@@ -1,0 +1,94 @@
+﻿<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noindex, nofollow">
+  <title>Admin | La Casa de Krizz</title>
+  <link rel="icon" href="../imagenes/logo-blog2.png">
+  <link rel="stylesheet" href="../style.css">
+  <link rel="stylesheet" href="./admin.css">
+</head>
+<body class="admin-body">
+  <header class="header">
+    <div class="header-container">
+      <a class="brand admin-brand" href="../">
+        <img src="../imagenes/logo-blog2.png" alt="Logo La Casa de Krizz">
+        <span>La Casa de Krizz</span>
+      </a>
+      <nav class="nav admin-nav">
+        <a href="../">Sitio publico</a>
+        <button class="btnLink" id="btnSignOut" hidden>Cerrar sesion</button>
+      </nav>
+    </div>
+  </header>
+
+  <main class="admin-shell">
+    <section class="admin-hero">
+      <div>
+        <p class="eyebrow">Panel administrativo</p>
+        <h1>Gestion de contenido</h1>
+        <p>Administra videos destacados, publicaciones del blog e imagenes sin tocar el codigo publico.</p>
+      </div>
+      <button class="btnLink" id="btnSignIn">Iniciar sesion con Google</button>
+    </section>
+
+    <div class="admin-status" id="status" role="status"></div>
+    <div class="admin-status" id="userInfo"></div>
+
+    <section class="dashboard-grid" id="dashboard" hidden>
+      <article class="metric-card">
+        <span>Videos</span>
+        <strong id="videosCount">0</strong>
+      </article>
+      <article class="metric-card">
+        <span>Posts blog</span>
+        <strong id="postsCount">0</strong>
+      </article>
+      <article class="metric-card">
+        <span>Rol</span>
+        <strong>Admin</strong>
+      </article>
+    </section>
+
+    <section class="admin-card" id="videoPanel" hidden>
+      <div class="section-head">
+        <div>
+          <h2>Videos dinamicos</h2>
+          <p class="admin-meta">Edita los slots usados por la pagina publica: video reciente y contenido destacado.</p>
+        </div>
+      </div>
+      <div class="admin-actions" id="videoEditor"></div>
+    </section>
+
+    <section class="admin-card" id="blogPanel" hidden>
+      <div class="section-head">
+        <div>
+          <h2>Blog CRUD</h2>
+          <p class="admin-meta">Crea, edita o elimina publicaciones guardadas en Firestore.</p>
+        </div>
+      </div>
+
+      <form class="blog-form" id="blogForm">
+        <input type="hidden" id="postId">
+        <label>Titulo<input id="postTitle" required maxlength="90" placeholder="Ej: Una historia de emigracion real"></label>
+        <label>Slug<input id="postSlug" required maxlength="90" placeholder="historia-emigracion-real"></label>
+        <label>Imagen<input id="postImage" type="url" placeholder="https://..."></label>
+        <label>Fecha<input id="postDate" type="date" required></label>
+        <label>Resumen<textarea id="postExcerpt" rows="3" required maxlength="220"></textarea></label>
+        <label>Contenido<textarea id="postBody" rows="7" required></textarea></label>
+        <div class="btnGroup">
+          <button class="btnLink" type="submit">Guardar post</button>
+          <button class="btnLink secondary" type="button" id="btnResetPost">Nuevo</button>
+        </div>
+      </form>
+
+      <div class="posts-list" id="postsList"></div>
+    </section>
+  </main>
+
+  <script src="../firebase-config.js"></script>
+  <script src="../cloudinary-config.js"></script>
+  <script type="module" src="./admin.js"></script>
+</body>
+</html>
