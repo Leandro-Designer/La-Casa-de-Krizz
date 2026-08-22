@@ -132,3 +132,4 @@ La colección `videos` controla los slots publicados en la home.
 3. Crea el documento `admins/{UID_DEL_USUARIO}` con `role: "admin"`.
 4. Publica `firestore.rules` desde Firebase Console o Firebase CLI.
 5. En `admin/admin.js`, cambia `TU_CORREO_ADMIN@gmail.com` por el correo real o elimina esa lista si vas a depender solo del documento `admins/{uid}`.
+
