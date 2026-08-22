@@ -208,25 +208,6 @@ body {
     background: rgba(0,0,0,0.35);
 }
 
-/* ================= VIDEO LOADING ================= */
-html.videos-loading .video-thumb {
-    cursor: default;
-    pointer-events: none;
-    background: linear-gradient(90deg, #0b1220 25%, #111c31 37%, #0b1220 63%);
-    background-size: 400% 100%;
-    animation: krizzShimmer 1.1s ease-in-out infinite;
-}
-
-html.videos-loading .video-thumb img,
-html.videos-loading .video-thumb .play-btn {
-    opacity: 0;
-}
-
-@keyframes krizzShimmer {
-    0% { background-position: 100% 0; }
-    100% { background-position: 0 0; }
-}
-
 /* ================= BOTONES ================= */
 .read-more,
 .btnLink {
@@ -343,24 +324,6 @@ p {
     text-align: center;
     padding: 20px;
     color: #94a3b8;
-}
-
-.admin-link {
-    display: inline-block;
-    margin-top: 10px;
-    text-decoration: none;
-    font-size: 13px;
-    padding: 8px 14px;
-    border-radius: 999px;
-    background: #020617;
-    color: #e2e8f0;
-    border: 1px solid #1e293b;
-    transition: all 0.25s ease;
-}
-
-.admin-link:hover {
-    background: #0b1220;
-    border-color: #334155;
 }
 
 /* ================= ANIMACIONES ================= */
